@@ -5,7 +5,7 @@ class Player:
     """ A class to represent a player. """
 
     def __init__(self, letter):
-        """ Initialize player attributes. """
+        """ Initialize class attributes. """
         self.letter = letter
 
     def move(self, game):
@@ -24,7 +24,6 @@ class HumanPlayer(Player):
         """ Verifying the player choice for the next move. """
         valid_square = False
         value = None
-
         while not valid_square:
             square = input(
                 f"\nPlayer '{self.letter.upper()}' turn. Pick a square 0 - 8: ")
