@@ -1,11 +1,12 @@
 import math
+import time
 
 
 class TicTacToe:
-    """ A class to represent TickTacToe. """
+    """ A class to represent a Tick-Tac-Toe game. """
 
     def __init__(self):
-        """ Initialize TickTacToe attributes. """
+        """ Initialize class attributes. """
         self.board = self.create_board()
         self.current_winner = None
 
@@ -43,12 +44,12 @@ class TicTacToe:
         """ Verifying a valid move. """
         if self.board[square] == ' ':
             self.board[square] = letter
-            if self.winner(square, letter):
+            if self.win_condition(square, letter):
                 self.current_winner = letter
             return True
         return False
 
-    def winner(self, square, letter):
+    def win_condition(self, square, letter):
         """ Verifying the winner. """
         row_index = math.floor(square / 3)
         row = self.board[row_index * 3: (row_index + 1) * 3]
@@ -69,3 +70,42 @@ class TicTacToe:
             if all([spot == letter for spot in diagonal_2]):
                 return True
         return False
+
+    @staticmethod
+    def start_game(game, x_player, o_player, print_game=True):
+        """ Start game with x_player and o_player. """
+
+        if print_game:
+            print()
+            game.display_board_numbers()
+
+        # Starting letter.
+        letter = 'X'
+
+        while game.empty_squares():
+            # Selecting appropriate player.
+            if letter == 'O':
+                square = o_player.move(game)
+            else:
+                square = x_player.move(game)
+
+            # Function to make a move.
+            if game.valid_move(square, letter):
+                if print_game:
+                    print(f"\n{letter} makes a move to square {square}\n")
+                    game.display_board_numbers()
+                    print("-------------")
+                    game.display_board()
+
+                if game.current_winner:
+                    if print_game:
+                        print(f"\n{letter} Wins!")
+                    return letter
+
+                # Switching players.
+                letter = 'O' if letter == 'X' else 'X'
+
+            time.sleep(0.5)
+
+        if print_game:
+            print("\nTie!")
