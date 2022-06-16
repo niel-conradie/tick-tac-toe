@@ -72,8 +72,8 @@ class TicTacToe:
         return False
 
     @staticmethod
-    def start_game(game, x_player, o_player, print_game=True):
-        """ Start game with x_player and o_player. """
+    def start_game(game, player_x, player_o, print_game=True):
+        """ Start game with player_x and player_o. """
 
         if print_game:
             print()
@@ -85,9 +85,9 @@ class TicTacToe:
         while game.empty_squares():
             # Selecting appropriate player.
             if letter == 'O':
-                square = o_player.move(game)
+                square = player_o.move(game)
             else:
-                square = x_player.move(game)
+                square = player_x.move(game)
 
             # Function to make a move.
             if game.valid_move(square, letter):
@@ -99,7 +99,7 @@ class TicTacToe:
 
                 if game.current_winner:
                     if print_game:
-                        print(f"\n{letter} Wins!")
+                        print(f"\nPlayer {letter} Wins!")
                     return letter
 
                 # Switching players.
@@ -109,3 +109,20 @@ class TicTacToe:
 
         if print_game:
             print("\nTie!")
+
+    @staticmethod
+    def restart():
+        """ Requesting user input and validating choice. """
+        while True:
+            user_input = input("\nRestart? Yes/No: ").lower()
+            choices = ['yes', 'no']
+            if user_input not in choices:
+                print("\nPlease type 'yes' or 'no'")
+                continue
+
+            # User input conditions.
+            if user_input == 'yes':
+                return
+            if user_input == 'no':
+                print("\nThank you for playing!")
+                quit()
