@@ -1,6 +1,7 @@
 import math
 
 from time import sleep
+from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
 
 class TicTacToe:
@@ -10,6 +11,71 @@ class TicTacToe:
         """Initialize class attributes."""
         self.board = self.create_board()
         self.current_winner = None
+
+    @staticmethod
+    def player_x_input():
+        """Requesting user input and validating choice."""
+        while True:
+            try:
+                user_input = int(input("Player X: "))
+            except ValueError:
+                print("\nThat is not a number.\n")
+                continue
+
+            choices = [1, 2, 3]
+            if user_input not in choices:
+                print(f"\n{user_input} is not an valid choice!\n")
+                continue
+            else:
+                return user_input
+
+    @staticmethod
+    def player_o_input():
+        """Requesting user input and validating choice."""
+        while True:
+            try:
+                user_input = int(input("Player O: "))
+            except ValueError:
+                print("\nThat is not a number.\n")
+                continue
+
+            choices = [1, 2, 3]
+            if user_input not in choices:
+                print(f"\n{user_input} is not an valid choice!\n")
+                continue
+            else:
+                return user_input
+
+    @staticmethod
+    def display_options(player):
+        """Display user input options."""
+        print(
+            f"\nPlayer '{player.upper()}' select one option below.\n"
+            "\nHuman Player: Type '1'"
+            "\nEasy Computer: Type '2'"
+            "\nHard Computer: Type '3'\n"
+        )
+
+    @staticmethod
+    def user_input_allocation(player, user_input):
+        """Assign user input to appropriate type of player."""
+        # Player X conditions.
+        if player == "X":
+            if user_input == 1:
+                return HumanPlayer(player)
+            if user_input == 2:
+                return EasyComputerPlayer(player)
+            if user_input == 3:
+                return HardComputerPlayer(player)
+
+        # Player O conditions.
+        if player == "O":
+            if user_input == 1:
+                return HumanPlayer(player)
+            if user_input == 2:
+                return EasyComputerPlayer(player)
+            if user_input == 3:
+                return HardComputerPlayer(player)
 
     @staticmethod
     def create_board():
