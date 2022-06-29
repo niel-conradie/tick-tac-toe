@@ -1,20 +1,32 @@
 from tic_tac_toe import TicTacToe
-from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
 
 def run():
     """Tic-Tac-Toe."""
-    run = TicTacToe()
+    game = TicTacToe()
 
-    player_x = HumanPlayer("X")
-    player_o = HardComputerPlayer("O")
+    x = "X"
+    # Display player X options.
+    game.display_options(x)
+    # Requesting user input.
+    player_x_input = game.player_x_input()
+    # Assign player X input to appropriate type of player.
+    player_x = game.user_input_allocation(x, player_x_input)
+
+    o = "O"
+    # Display player O options.
+    game.display_options(o)
+    # Requesting user input.
+    player_o_input = game.player_o_input()
+    # Assign player O input to appropriate type of player.
+    player_o = game.user_input_allocation(o, player_o_input)
 
     while True:
         start = TicTacToe()
-        # Starting game.
-        run.start_game(start, player_x, player_o, print_game=True)
+        # Starting game and passing player inputs as arguments.
+        game.start_game(start, player_x, player_o, print_game=True)
         # Requesting user input.
-        run.restart()
+        game.restart()
 
         continue
 
