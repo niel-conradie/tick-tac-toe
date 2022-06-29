@@ -1,5 +1,5 @@
 from tic_tac_toe import TicTacToe
-from player import HumanPlayer, EasyComputerPlayer
+from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
 
 def run():
@@ -7,11 +7,11 @@ def run():
     run = TicTacToe()
 
     player_x = HumanPlayer('X')
-    player_o = EasyComputerPlayer('O')
+    player_o = HardComputerPlayer('O')
 
     while True:
         start = TicTacToe()
-        # Starting the game.
+        # Starting game.
         run.start_game(start, player_x, player_o, print_game=True)
         # Requesting user input.
         run.restart()
