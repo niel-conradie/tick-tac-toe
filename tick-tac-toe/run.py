@@ -3,11 +3,11 @@ from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
 
 def run():
-    """ Tic-Tac-Toe. """
+    """Tic-Tac-Toe."""
     run = TicTacToe()
 
-    player_x = HumanPlayer('X')
-    player_o = HardComputerPlayer('O')
+    player_x = HumanPlayer("X")
+    player_o = HardComputerPlayer("O")
 
     while True:
         start = TicTacToe()
@@ -19,5 +19,5 @@ def run():
         continue
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
