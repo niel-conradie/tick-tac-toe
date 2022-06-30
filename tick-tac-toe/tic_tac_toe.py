@@ -1,5 +1,4 @@
-import math
-
+from math import floor
 from time import sleep
 from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
@@ -49,12 +48,10 @@ class TicTacToe:
     @staticmethod
     def display_options(player):
         """Display user input options."""
-        print(
-            f"\nPlayer '{player.upper()}' select one option below.\n"
-            "\nHuman Player: Type '1'"
-            "\nEasy Computer: Type '2'"
-            "\nHard Computer: Type '3'\n"
-        )
+        print(f"\nPlayer '{player.upper()}' select one option below.")
+        print("\nHuman Player: Type '1'")
+        print("Easy Computer: Type '2'")
+        print("Hard Computer: Type '3'\n")
 
     @staticmethod
     def user_input_allocation(player, user_input):
@@ -117,7 +114,7 @@ class TicTacToe:
 
     def win_condition(self, square, letter):
         """Verifying the winner."""
-        row_index = math.floor(square / 3)
+        row_index = floor(square / 3)
         row = self.board[row_index * 3 : (row_index + 1) * 3]
         if all([spot == letter for spot in row]):
             return True
