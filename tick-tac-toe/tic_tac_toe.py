@@ -118,7 +118,7 @@ class TicTacToe:
             print()
             game.display_board_numbers()
 
-        # Starting letter.1
+        # Starting letter.
         letter = "X"
 
         while game.empty_squares():
@@ -161,7 +161,7 @@ class TicTacToe:
 
         while True:
             game = TicTacToe()
-            # Starting game and passing player inputs as arguments.
+            # Starting game and passing user inputs as arguments.
             self.game(game, player_x, player_o, print_game=True)
             # Requesting user input.
             self.restart()
