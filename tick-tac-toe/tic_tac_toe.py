@@ -152,9 +152,7 @@ class TicTacToe:
     def start_game(self):
         """Starting the tic-tac-toe game."""
         # Requesting user input.
-        player_1 = "X"
-        player_2 = "O"
-
+        player_1, player_2 = "X", "O"
         player_x = self.user_input(player_1)
         player_o = self.user_input(player_2)
 
