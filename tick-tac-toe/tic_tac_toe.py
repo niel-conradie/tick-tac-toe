@@ -1,5 +1,6 @@
 from math import floor
 from time import sleep
+
 from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
 
 
@@ -134,33 +135,31 @@ class TicTacToe:
                 return True
         return False
 
-    @staticmethod
-    def start_game(game, player_x, player_o, print_game=True):
+    def game(self, player_x, player_o, print_game=True):
         """Start game with player_x and player_o."""
-
         if print_game:
             print()
-            game.display_board_numbers()
+            self.display_board_numbers()
 
-        # Starting letter.
+        # Starting letter.1
         letter = "X"
 
-        while game.empty_squares():
+        while self.empty_squares():
             # Selecting appropriate player.
             if letter == "O":
-                square = player_o.move(game)
+                square = player_o.move(self)
             else:
-                square = player_x.move(game)
+                square = player_x.move(self)
 
             # Function to make a move.
-            if game.valid_move(square, letter):
+            if self.valid_move(square, letter):
                 if print_game:
                     print(f"\n{letter} makes a move to square {square}\n")
-                    game.display_board_numbers()
+                    self.display_board_numbers()
                     print("-------------")
-                    game.display_board()
+                    self.display_board()
 
-                if game.current_winner:
+                if self.current_winner:
                     if print_game:
                         print(f"\nPlayer {letter} Wins!")
                     return letter
@@ -172,6 +171,32 @@ class TicTacToe:
 
         if print_game:
             print("\nTie!")
+
+    def start_game(self):
+        """Starting the tic-tac-toe game."""
+        x = "X"
+        # Display player X options.
+        self.display_options(x)
+        # Requesting user input.
+        player_x_input = self.player_x_input()
+        # Assign player X input to appropriate type of player.
+        player_x = self.user_input_allocation(x, player_x_input)
+
+        o = "O"
+        # Display player O options.
+        self.display_options(o)
+        # Requesting user input.
+        player_o_input = self.player_o_input()
+        # Assign player O input to appropriate type of player.
+        player_o = self.user_input_allocation(o, player_o_input)
+
+        while True:
+            # Starting game and passing player inputs as arguments.
+            self.game(player_x, player_o, print_game=True)
+            # Requesting user input.
+            self.restart()
+
+            continue
 
     @staticmethod
     def restart():
