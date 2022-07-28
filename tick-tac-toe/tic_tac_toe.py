@@ -13,67 +13,43 @@ class TicTacToe:
         self.current_winner = None
 
     @staticmethod
-    def player_x_input():
+    def user_input(player):
         """Requesting user input and validating choice."""
         while True:
+            print(f"\nPlayer '{player.upper()}' select one option below.")
+            print("\nHuman Player: Type '1'")
+            print("Easy Computer: Type '2'")
+            print("Hard Computer: Type '3'")
+
             try:
-                user_input = int(input("Player X: "))
+                user_input = int(input(f"\nPlayer {player.upper()}: "))
             except ValueError:
-                print("\nThat is not a number.\n")
+                print("\nThat is not a number.")
                 continue
 
+            # User input validation conditions.
             choices = [1, 2, 3]
             if user_input not in choices:
-                print(f"\n{user_input} is not an valid choice!\n")
-                continue
-            else:
-                return user_input
-
-    @staticmethod
-    def player_o_input():
-        """Requesting user input and validating choice."""
-        while True:
-            try:
-                user_input = int(input("Player O: "))
-            except ValueError:
-                print("\nThat is not a number.\n")
+                print(f"\n{user_input} is not an valid choice!")
                 continue
 
-            choices = [1, 2, 3]
-            if user_input not in choices:
-                print(f"\n{user_input} is not an valid choice!\n")
-                continue
-            else:
-                return user_input
+            # Player X conditions.
+            elif player == "X":
+                if user_input == 1:
+                    return HumanPlayer(player)
+                elif user_input == 2:
+                    return EasyComputerPlayer(player)
+                elif user_input == 3:
+                    return HardComputerPlayer(player)
 
-    @staticmethod
-    def display_options(player):
-        """Display user input options."""
-        print(f"\nPlayer '{player.upper()}' select one option below.")
-        print("\nHuman Player: Type '1'")
-        print("Easy Computer: Type '2'")
-        print("Hard Computer: Type '3'\n")
-
-    @staticmethod
-    def user_input_allocation(player, user_input):
-        """Assign user input to appropriate type of player."""
-        # Player X conditions.
-        if player == "X":
-            if user_input == 1:
-                return HumanPlayer(player)
-            if user_input == 2:
-                return EasyComputerPlayer(player)
-            if user_input == 3:
-                return HardComputerPlayer(player)
-
-        # Player O conditions.
-        if player == "O":
-            if user_input == 1:
-                return HumanPlayer(player)
-            if user_input == 2:
-                return EasyComputerPlayer(player)
-            if user_input == 3:
-                return HardComputerPlayer(player)
+            # Player O conditions.
+            elif player == "O":
+                if user_input == 1:
+                    return HumanPlayer(player)
+                elif user_input == 2:
+                    return EasyComputerPlayer(player)
+                elif user_input == 3:
+                    return HardComputerPlayer(player)
 
     @staticmethod
     def create_board():
@@ -135,31 +111,32 @@ class TicTacToe:
                 return True
         return False
 
-    def game(self, player_x, player_o, print_game=True):
+    @staticmethod
+    def game(game, player_x, player_o, print_game=True):
         """Start game with player_x and player_o."""
         if print_game:
             print()
-            self.display_board_numbers()
+            game.display_board_numbers()
 
         # Starting letter.1
         letter = "X"
 
-        while self.empty_squares():
+        while game.empty_squares():
             # Selecting appropriate player.
             if letter == "O":
-                square = player_o.move(self)
+                square = player_o.move(game)
             else:
-                square = player_x.move(self)
+                square = player_x.move(game)
 
             # Function to make a move.
-            if self.valid_move(square, letter):
+            if game.valid_move(square, letter):
                 if print_game:
                     print(f"\n{letter} makes a move to square {square}\n")
-                    self.display_board_numbers()
+                    game.display_board_numbers()
                     print("-------------")
-                    self.display_board()
+                    game.display_board()
 
-                if self.current_winner:
+                if game.current_winner:
                     if print_game:
                         print(f"\nPlayer {letter} Wins!")
                     return letter
@@ -174,25 +151,18 @@ class TicTacToe:
 
     def start_game(self):
         """Starting the tic-tac-toe game."""
-        x = "X"
-        # Display player X options.
-        self.display_options(x)
+        player_1 = "X"
         # Requesting user input.
-        player_x_input = self.player_x_input()
-        # Assign player X input to appropriate type of player.
-        player_x = self.user_input_allocation(x, player_x_input)
+        player_x = self.user_input(player_1)
 
-        o = "O"
-        # Display player O options.
-        self.display_options(o)
+        player_2 = "O"
         # Requesting user input.
-        player_o_input = self.player_o_input()
-        # Assign player O input to appropriate type of player.
-        player_o = self.user_input_allocation(o, player_o_input)
+        player_o = self.user_input(player_2)
 
         while True:
+            game = TicTacToe()
             # Starting game and passing player inputs as arguments.
-            self.game(player_x, player_o, print_game=True)
+            self.game(game, player_x, player_o, print_game=True)
             # Requesting user input.
             self.restart()
 
