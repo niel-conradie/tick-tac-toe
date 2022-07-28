@@ -1,6 +1,6 @@
 # **Tick-Tac-Toe**
 
-**Tick-Tac-Toe Game written in [Python](https://www.python.org).**
+**Tick-Tac-Toe Terminal Game written in [Python](https://www.python.org).**
 
 Tic-Tac-Toe is a game in which two players take turns in drawing either an ' O' or an ' X' in one square of a grid consisting of nine squares. The winner is the first player to get three of the same symbols in a row.
 
@@ -42,7 +42,7 @@ Tick-Tac-Toe can be installed via [Pip](https://pypi.org/project/pip/). To start
 ----
 ## **Usage**
 
-To launch the Tic-Tac-Toe Game run thus file.
+To launch the Tic-Tac-Toe Game use thus file.
 ```bash
   run.py
 ```
