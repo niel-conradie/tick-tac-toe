@@ -151,12 +151,11 @@ class TicTacToe:
 
     def start_game(self):
         """Starting the tic-tac-toe game."""
+        # Requesting user input.
         player_1 = "X"
-        # Requesting user input.
-        player_x = self.user_input(player_1)
-
         player_2 = "O"
-        # Requesting user input.
+
+        player_x = self.user_input(player_1)
         player_o = self.user_input(player_2)
 
         while True:
@@ -173,7 +172,7 @@ class TicTacToe:
         """Requesting user input and validating choice."""
         while True:
             print("\nPlay Again?")
-            print("Yes: Type '1'")
+            print("\nYes: Type '1'")
             print("No: Type '2'")
 
             try:
