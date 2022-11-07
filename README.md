@@ -15,8 +15,8 @@ Tick-Tac-Toe can be installed via [Pip](https://pypi.org/project/pip/). To start
 
 * **Clone Repository**
 ```bash
-  $ git clone https://github.com/niel-conradie/Tick-Tac-Toe.git
-  $ cd Tic-Tac-Toe
+  $ git clone https://github.com/niel-conradie/tick-tac-toe.git
+  $ cd tic-tac-toe
 ```
 ### **Pip Install**
 
