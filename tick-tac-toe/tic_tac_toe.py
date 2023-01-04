@@ -64,7 +64,9 @@ class TicTacToe:
     @staticmethod
     def display_board_numbers():
         """Adding numbers that correspond to each box."""
-        number_board = [[str(i) for i in range(j * 3, (j + 1) * 3)] for j in range(3)]
+        number_board = [
+            [str(i) for i in range(j * 3, (j + 1) * 3)] for j in range(3)
+        ]
         for row in number_board:
             print("| " + " | ".join(row) + " |")
 
