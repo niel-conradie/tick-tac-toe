@@ -1,7 +1,11 @@
 from math import floor
 from time import sleep
 
-from player import HumanPlayer, EasyComputerPlayer, HardComputerPlayer
+from player import (
+    HumanPlayer,
+    EasyComputerPlayer,
+    HardComputerPlayer,
+)
 
 
 class TicTacToe:
