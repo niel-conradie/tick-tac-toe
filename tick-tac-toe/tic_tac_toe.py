@@ -20,11 +20,13 @@ class TicTacToe:
     def user_input(player):
         """Requesting user input and validating choice."""
         while True:
+            # Display user input options.
             print(f"\nPlayer '{player.upper()}' select one option below.")
             print("\nHuman Player: Type '1'")
             print("Easy Computer: Type '2'")
             print("Hard Computer: Type '3'")
 
+            # Requesting user input.
             try:
                 user_input = int(input(f"\nPlayer {player.upper()}: "))
             except ValueError:
@@ -175,10 +177,12 @@ class TicTacToe:
     def restart():
         """Requesting user input and validating choice."""
         while True:
+            # Display user input options.
             print("\nPlay Again?")
             print("\nYes: Type '1'")
             print("No: Type '2'")
 
+            # Requesting user input.
             try:
                 user_input = int(input("\nEnter: "))
             except ValueError:
