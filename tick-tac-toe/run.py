@@ -1,8 +1,7 @@
 from tic_tac_toe import TicTacToe
 
 
-def run():
-    """Tic-Tac-Toe."""
+if __name__ == "__main__":
     run = TicTacToe()
 
     try:
@@ -11,7 +10,3 @@ def run():
     except KeyboardInterrupt:
         # Stopping the game.
         quit("\n\nProgram Terminated")
-
-
-if __name__ == "__main__":
-    run()
