@@ -64,7 +64,7 @@ class TicTacToe:
 
     def display_board(self):
         """Adding rows to the board."""
-        for row in [self.board[i * 3 : (i + 1) * 3] for i in range(3)]:
+        for row in [self.board[i * 3: (i + 1) * 3] for i in range(3)]:
             print("| " + " | ".join(row) + " |")
 
     @staticmethod
@@ -100,7 +100,7 @@ class TicTacToe:
     def win_condition(self, square, letter):
         """Verifying the winner."""
         row_index = floor(square / 3)
-        row = self.board[row_index * 3 : (row_index + 1) * 3]
+        row = self.board[row_index * 3: (row_index + 1) * 3]
         if all([spot == letter for spot in row]):
             return True
 
