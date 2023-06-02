@@ -4,14 +4,13 @@
 
 Tic-Tac-Toe is a game in which two players take turns in drawing either an ' O' or an ' X' in one square of a grid consisting of nine squares. The winner is the first player to get three of the same symbols in a row.
 
-----
+---
 
 ## **Requirements**
 
 - [Python 3.X](https://www.python.org/downloads/)
-- [Black](https://pypi.org/project/black/)
 
-----
+---
 
 ## **Installation**
 
@@ -54,23 +53,17 @@ PS C:> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 PS C:> .venv\Scripts\Activate.ps1
 ```
 
-- **Install Requirements**
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-----
+---
 
 ## **Usage**
 
 - To launch the Tic-Tac-Toe game use the [run.py](https://github.com/niel-conradie/tick-tac-toe/blob/master/tick-tac-toe/run.py) file to start.
 - Select the game mode in the terminal window and have fun.
 
-----
+---
 
 ## **License**
 
 [MIT License](https://github.com/niel-conradie/Tick-Tac-Toe/blob/master/LICENSE)
 
-----
+---
